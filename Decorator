@@ -1,0 +1,17 @@
+def outer(arg):
+    print(f'arg = {arg}')
+    def inner():
+        obj = arg()  #actual object creation
+    return inner
+@outer
+class sample:
+    def __init__(self):
+        print('constructor is called')
+print(f'sample = {sample}')
+obj1= sample()
+obj2= sample()
+
+output:arg = <class '__main__.sample'>
+             sample = <function outer.<locals>.inner at 0x000001E3D3669DA0>
+             constructor is called
+             constructor is called
