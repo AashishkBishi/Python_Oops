@@ -15,3 +15,28 @@ output:arg = <class '__main__.sample'>
              sample = <function outer.<locals>.inner at 0x000001E3D3669DA0>
              constructor is called
              constructor is called
+
+
+
+def outer(arg):
+    def inner():
+        obj= arg()
+        return obj
+    return inner
+@outer
+class sample:
+    def __init__(self):
+        print('constructor is called') 
+    def m1(self):
+        print('m1 method')
+print(f'sample = {sample}')
+obj1 = sample()
+obj1.m1()
+obj2 = sample()
+obj2.m1() 
+
+output:sample = <function outer.<locals>.inner at 0x000001C9A5E79DA0>
+       constructor is called
+       m1 method
+       constructor is called
+       m1 method
