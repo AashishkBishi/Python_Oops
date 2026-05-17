@@ -57,3 +57,23 @@ print(D.mro())
 
 Output:[<class '__main__.D'>, <class '__main__.C'>, <class '__main__.B'>, <class '__main__.A'>, <class 'object'>]
 Mro stand as Method resolving order. This method gives the order of execution of class and methods in the form of list.
+
+
+
+    #Real=time example (Booking cab)
+    
+class Vehicle:  
+    def start(self):
+        print("Vehicle started")
+class Car(Vehicle):
+    def book_ride(self):
+        print("Ride booked")
+c = Car()
+c.start()
+c.book_ride()
+
+output:  Vehicle started
+         Ride booked
+ 
+    
+    
