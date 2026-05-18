@@ -1,0 +1,28 @@
+from abc import ABC, abstractmethod
+# ---------------- ABSTRACTION ----------------
+class Payment(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+# ---------------- INHERITANCE ----------------
+class UPI(Payment):
+    def __init__(self, upi_id):
+        self.__upi_id = upi_id      # ENCAPSULATION
+    def pay(self, amount):
+        print(f"₹{amount} paid using UPI: {self.__upi_id}")
+class CreditCard(Payment):
+    def __init__(self, card_number):
+        self.__card_number = card_number   # ENCAPSULATION
+    def pay(self, amount):
+        print(f"₹{amount} paid using Credit Card ending with {self.__card_number[-4:]}")
+# ---------------- POLYMORPHISM ----------------
+payments = [
+    UPI("rahul@upi"),
+    CreditCard("1234567812345678")
+]
+for payment in payments:
+    payment.pay(500)
+
+
+o/p: ₹500 paid using UPI: rahul@upi
+     ₹500 paid using Credit Card ending with 5678
